@@ -30,7 +30,5 @@ public class MapperConfig {
 
 
         return mapper;
-
-        return new ModelMapper();
     }
 }
