@@ -4,9 +4,7 @@ package com.project.uber.uberApp.entities;
 import com.project.uber.uberApp.entities.enums.TransactionMethod;
 import com.project.uber.uberApp.entities.enums.TransactionType;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -15,6 +13,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(indexes = {
         @Index(name = "idx_wallet_transaction_wallet", columnList = "wallet_id"),
         @Index(name = "idx_wallet_transaction_ride", columnList = "ride_id")
