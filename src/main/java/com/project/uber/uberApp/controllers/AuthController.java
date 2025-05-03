@@ -58,4 +58,14 @@ public class AuthController {
 
         return ResponseEntity.ok(new LoginResponseDto(accessToken));
     }
+    // testing caching
+    @PostMapping("/myProfile")
+    public UserDto myProfile(@RequestParam Long id) {
+        return authService.getMyProfile(id);
+    }
+
+    @PatchMapping("/updateUserInfo")
+    public UserDto updateUserInfo(@RequestBody SignupDto signupDto) {
+        return authService.updateUserInfo(signupDto);
+    }
 }

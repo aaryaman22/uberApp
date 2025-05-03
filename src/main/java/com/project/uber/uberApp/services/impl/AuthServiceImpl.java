@@ -15,6 +15,9 @@ import com.project.uber.uberApp.services.AuthService;
 import com.project.uber.uberApp.services.DriverService;
 import com.project.uber.uberApp.services.RiderService;
 import com.project.uber.uberApp.services.WalletService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -24,12 +27,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Field;
 import java.util.Set;
 
 import static com.project.uber.uberApp.enums.Role.DRIVER;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthServiceImpl implements AuthService {
 
     private final UserRepository userRepository;
@@ -40,6 +45,7 @@ public class AuthServiceImpl implements AuthService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
+    private final String CACHE_NAME = "employees";
 
     @Override
     public String[] login(String email, String password) {
@@ -101,5 +107,45 @@ public class AuthServiceImpl implements AuthService {
                 "with id: "+userId));
 
         return jwtService.generateAccessToken(user);
+    }
+
+    @Override
+    @Cacheable(cacheNames = CACHE_NAME, key="#userId")
+    public UserDto getMyProfile(Long userId) {
+        log.info("fetching user info from repo");
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id "+userId));
+        return modelMapper.map(user, UserDto.class);
+    }
+
+    @Override
+    @CachePut(cacheNames = CACHE_NAME, key = "#result.id")
+    public UserDto updateUserInfo(SignupDto signupDto) {
+        User user = userRepository.findByEmail(signupDto.getEmail())
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with email: " + signupDto.getEmail()));
+
+        try {
+            for (Field field : SignupDto.class.getDeclaredFields()) {
+                field.setAccessible(true);
+                Object value = field.get(signupDto);
+
+                if (value != null && !"email".equals(field.getName())) {
+                    Field userField = User.class.getDeclaredField(field.getName());
+                    userField.setAccessible(true);
+
+                    if ("password".equals(field.getName())) {
+                        // encode the password
+                        String encodedPassword = passwordEncoder.encode((String) value);
+                        userField.set(user, encodedPassword);
+                    } else {
+                        userField.set(user, value);
+                    }
+                }
+            }
+            userRepository.save(user);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to update user info", e);
+        }
+        return modelMapper.map(user, UserDto.class);
     }
 }

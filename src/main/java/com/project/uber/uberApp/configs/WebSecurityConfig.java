@@ -23,7 +23,8 @@ public class WebSecurityConfig {
             "/actuator/health",
             "/api/auth/**",
             "/swagger-ui/**",
-            "/v3/api-docs/**"};
+            "/v3/api-docs/**",
+            "/auth/**"};
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
