@@ -1,6 +1,6 @@
 package com.project.uber.uberApp.dto;
 
-import com.project.uber.uberApp.entities.enums.Role;
+import com.project.uber.uberApp.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -2,8 +2,8 @@ package com.project.uber.uberApp.strategies.impl;
 
 import com.project.uber.uberApp.entities.Driver;
 import com.project.uber.uberApp.entities.Payment;
-import com.project.uber.uberApp.entities.enums.PaymentStatus;
-import com.project.uber.uberApp.entities.enums.TransactionMethod;
+import com.project.uber.uberApp.enums.PaymentStatus;
+import com.project.uber.uberApp.enums.TransactionMethod;
 import com.project.uber.uberApp.repositories.PaymentRepository;
 import com.project.uber.uberApp.services.WalletService;
 import com.project.uber.uberApp.strategies.PaymentStrategy;

@@ -1,8 +1,8 @@
 package com.project.uber.uberApp.entities;
 
 
-import com.project.uber.uberApp.entities.enums.PaymentMethod;
-import com.project.uber.uberApp.entities.enums.RideStatus;
+import com.project.uber.uberApp.enums.PaymentMethod;
+import com.project.uber.uberApp.enums.RideStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

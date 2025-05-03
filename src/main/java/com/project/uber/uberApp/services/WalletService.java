@@ -3,7 +3,7 @@ package com.project.uber.uberApp.services;
 import com.project.uber.uberApp.entities.Ride;
 import com.project.uber.uberApp.entities.User;
 import com.project.uber.uberApp.entities.Wallet;
-import com.project.uber.uberApp.entities.enums.TransactionMethod;
+import com.project.uber.uberApp.enums.TransactionMethod;
 
 public interface WalletService {
 

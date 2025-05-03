@@ -2,7 +2,7 @@ package com.project.uber.uberApp.services.impl;
 
 import com.project.uber.uberApp.entities.Payment;
 import com.project.uber.uberApp.entities.Ride;
-import com.project.uber.uberApp.entities.enums.PaymentStatus;
+import com.project.uber.uberApp.enums.PaymentStatus;
 import com.project.uber.uberApp.exceptions.ResourceNotFoundException;
 import com.project.uber.uberApp.repositories.PaymentRepository;
 import com.project.uber.uberApp.services.PaymentService;

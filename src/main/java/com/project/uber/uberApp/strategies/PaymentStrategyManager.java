@@ -1,6 +1,6 @@
 package com.project.uber.uberApp.strategies;
 
-import com.project.uber.uberApp.entities.enums.PaymentMethod;
+import com.project.uber.uberApp.enums.PaymentMethod;
 import com.project.uber.uberApp.strategies.impl.CashPaymentStrategy;
 import com.project.uber.uberApp.strategies.impl.WalletPaymentStrategy;
 import lombok.RequiredArgsConstructor;

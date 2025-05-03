@@ -7,8 +7,8 @@ import com.project.uber.uberApp.entities.Driver;
 import com.project.uber.uberApp.entities.Ride;
 import com.project.uber.uberApp.entities.RideRequest;
 import com.project.uber.uberApp.entities.User;
-import com.project.uber.uberApp.entities.enums.RideRequestStatus;
-import com.project.uber.uberApp.entities.enums.RideStatus;
+import com.project.uber.uberApp.enums.RideRequestStatus;
+import com.project.uber.uberApp.enums.RideStatus;
 import com.project.uber.uberApp.exceptions.ResourceNotFoundException;
 import com.project.uber.uberApp.repositories.DriverRepository;
 import com.project.uber.uberApp.services.*;
@@ -21,7 +21,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

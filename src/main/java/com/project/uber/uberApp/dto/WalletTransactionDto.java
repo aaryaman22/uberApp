@@ -1,7 +1,7 @@
 package com.project.uber.uberApp.dto;
 
-import com.project.uber.uberApp.entities.enums.TransactionMethod;
-import com.project.uber.uberApp.entities.enums.TransactionType;
+import com.project.uber.uberApp.enums.TransactionMethod;
+import com.project.uber.uberApp.enums.TransactionType;
 import lombok.Builder;
 import lombok.Data;
 

@@ -1,12 +1,11 @@
 package com.project.uber.uberApp.services.impl;
 
-import com.project.uber.uberApp.dto.RideRequestDto;
 import com.project.uber.uberApp.entities.Driver;
 import com.project.uber.uberApp.entities.Ride;
 import com.project.uber.uberApp.entities.RideRequest;
 import com.project.uber.uberApp.entities.Rider;
-import com.project.uber.uberApp.entities.enums.RideRequestStatus;
-import com.project.uber.uberApp.entities.enums.RideStatus;
+import com.project.uber.uberApp.enums.RideRequestStatus;
+import com.project.uber.uberApp.enums.RideStatus;
 import com.project.uber.uberApp.exceptions.ResourceNotFoundException;
 import com.project.uber.uberApp.repositories.RideRepository;
 import com.project.uber.uberApp.services.RideRequestService;

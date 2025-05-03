@@ -6,7 +6,7 @@ import com.project.uber.uberApp.dto.SignupDto;
 import com.project.uber.uberApp.dto.UserDto;
 import com.project.uber.uberApp.entities.Driver;
 import com.project.uber.uberApp.entities.User;
-import com.project.uber.uberApp.entities.enums.Role;
+import com.project.uber.uberApp.enums.Role;
 import com.project.uber.uberApp.exceptions.ResourceNotFoundException;
 import com.project.uber.uberApp.exceptions.RuntimeConflictException;
 import com.project.uber.uberApp.repositories.UserRepository;
@@ -26,7 +26,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-import static com.project.uber.uberApp.entities.enums.Role.DRIVER;
+import static com.project.uber.uberApp.enums.Role.DRIVER;
 
 @Service
 @RequiredArgsConstructor

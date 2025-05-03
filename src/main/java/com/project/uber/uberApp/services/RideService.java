@@ -1,11 +1,10 @@
 package com.project.uber.uberApp.services;
 
-import com.project.uber.uberApp.dto.RideRequestDto;
 import com.project.uber.uberApp.entities.Driver;
 import com.project.uber.uberApp.entities.Ride;
 import com.project.uber.uberApp.entities.RideRequest;
 import com.project.uber.uberApp.entities.Rider;
-import com.project.uber.uberApp.entities.enums.RideStatus;
+import com.project.uber.uberApp.enums.RideStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 

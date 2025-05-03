@@ -1,4 +1,4 @@
-package com.project.uber.uberApp.entities.enums;
+package com.project.uber.uberApp.enums;
 
 public enum RideRequestStatus {
     PENDING, CANCELLED, CONFIRMED
