@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class WalletPaymentStrategy implements PaymentStrategy {
 
+    //transaction needs proxy, t not working in same class 1 func calling other func
     private final WalletService walletService;
     private final PaymentRepository paymentRepository;
 
