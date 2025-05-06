@@ -13,6 +13,7 @@ import com.project.uber.uberApp.services.WalletTransactionService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -24,7 +25,7 @@ public class WalletServiceImpl implements WalletService {
     private final ModelMapper modelMapper;
 
     @Override
-    @Transactional
+    @Transactional(propagation = Propagation.MANDATORY)
     public Wallet addMoneyToWallet(User user, Double amount, String transactionId, Ride ride, TransactionMethod transactionMethod) {
         Wallet wallet = findByUser(user);
         wallet.setBalance(wallet.getBalance()+amount);

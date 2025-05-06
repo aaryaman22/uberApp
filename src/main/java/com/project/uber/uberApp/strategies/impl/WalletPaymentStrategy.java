@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class WalletPaymentStrategy implements PaymentStrategy {
 
     //transaction needs proxy, t not working in same class 1 func calling other func
+    //nested transaction take checkpt. from calling funct transaction
     private final WalletService walletService;
     private final PaymentRepository paymentRepository;
 
