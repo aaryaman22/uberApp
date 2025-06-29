@@ -31,7 +31,9 @@ public class WalletTransaction {
 
     private TransactionMethod transactionMethod;
 
-    @OneToOne
+    @ManyToOne
+    //2 types of wallet transaction related to ride
+    //for particular rideId we can store 2 transaction one for rider and one for driver
     private Ride ride;
 
     private String transactionId;
